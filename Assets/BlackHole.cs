@@ -2,6 +2,12 @@
 
 public class BlackHole : AbstractSpell
 {
+
+    void Start()
+    {
+        Debug.Log("Hello");
+    }
+
     /*
     void OnCollisionEnter(Collision col)
     {
