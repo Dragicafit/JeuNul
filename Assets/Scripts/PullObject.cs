@@ -4,6 +4,7 @@ using UnityEngine;
 public class PullObject : MonoBehaviour
 {
 
+    public float pullForce = 1;
     public float pullRadius = 10;
     public float timeBeforePull = 5;
     private float start;
@@ -24,12 +25,22 @@ public class PullObject : MonoBehaviour
         {
             foreach (Collider collider in Physics.OverlapSphere(transform.position, pullRadius))
             {
+                if (collider.gameObject == gameObject)
+                {
+                    continue;
+                }
                 Vector3 forceDirection = transform.position - collider.transform.position;
                 float d = forceDirection.magnitude;
-                if (collider.gameObject != gameObject && collider.GetComponent<Rigidbody>() != null)
+
+                if (collider.GetComponent<Rigidbody>() != null)
                 {
-                    float f = collider.GetComponent<Rigidbody>().mass * gameObject.GetComponent<Rigidbody>().mass / (float)Math.Pow(d, 2);
+                    float f = pullForce * collider.GetComponent<Rigidbody>().mass * gameObject.GetComponent<Rigidbody>().mass / (float)Math.Pow(d, 2);
                     collider.GetComponent<Rigidbody>().AddForce(forceDirection.normalized * f * Time.fixedDeltaTime);
+                }
+
+                if(collider.GetComponent<ParticleSystem>() != null)
+                {
+                    
                 }
             }
         }

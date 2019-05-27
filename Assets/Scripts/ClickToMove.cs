@@ -3,52 +3,55 @@
 public class ClickToMove : MonoBehaviour
 {
 
-    public float speed = 6.0f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
-    private CharacterController characterController;
-    private Vector3 moveDirection = Vector3.zero;
+    public float Speed = 5f;
+    public float JumpHeight = 2f;
+    public float GroundDistance = 0.2f;
+    public float DashDistance = 5f;
 
-    // Start is called before the first frame update
+    private Rigidbody body;
+    private Vector3 input;
+    private LesBeauxPiedsDuCube lbpdc;
+
     void Start()
     {
-        characterController = gameObject.GetComponent<CharacterController>();
+        body = GetComponent<Rigidbody>();
+        lbpdc = GetComponentInChildren<LesBeauxPiedsDuCube>();
+        if (lbpdc == null)
+            throw new System.Exception("Tu peux pas marcher sans pieds");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (characterController.isGrounded)
+        /*
+        float DisstanceToTheGround = GetComponent<Collider>().bounds.extents.y;
+        bool IsGrounded = Physics.Raycast(transform.position, Vector3.down, DisstanceToTheGround + GroundDistance);
+        */
+
+        bool IsGrounded = lbpdc.IsGrounded();
+
+        input = new Vector3(Input.mousePosition.x - Screen.width / 2, 0.0f, Input.mousePosition.y - Screen.height / 2).normalized;
+        input *= Speed;
+        if (input != Vector3.zero)
+            transform.forward = input;
+        
+        if (Input.GetButtonDown("Jump") && IsGrounded)
         {
-            if (Input.GetButton("Fire1"))
-            {
-                // We are grounded, so recalculate
-                // move direction directly from axes
-
-                moveDirection = new Vector3(Input.mousePosition.x - Screen.width / 2, 0.0f, Input.mousePosition.y - Screen.height / 2).normalized;
-                moveDirection *= speed;
-            }
-            else
-            {
-                moveDirection = new Vector3(0f, 0f, 0f);
-            }
-
-            if (Input.GetButton("Jump"))
-            {
-                moveDirection.y = jumpSpeed;
-            }
+            Debug.Log("Hi");
+            body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
         }
-
-        // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
-        // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
-        // as an acceleration (ms^-2)
-        moveDirection.y -= gravity * Time.deltaTime;
-
-        // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
-
-
+        /*
+        if (Input.GetButtonDown("Dash"))
+        {
+            Vector3 dashVelocity = Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * body.drag + 1)) / -Time.deltaTime)));
+            body.AddForce(dashVelocity, ForceMode.VelocityChange);
+        }
+        */
     }
 
- 
+    void FixedUpdate()
+    {
+        if(Input.GetButton("Fire1"))
+            body.MovePosition(body.position + input * Speed * Time.fixedDeltaTime);
+    }
+
 }
