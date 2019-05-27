@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpellList : MonoBehaviour
@@ -6,37 +7,53 @@ public class SpellList : MonoBehaviour
 
     public GameObject blackhole;
     public GameObject stone;
+    public int nombreSortsCharges = 5;
+    public List<string> touches;
 
-    private List<GameObject> spells;
+    private List<string> sortsCharges;
+    private Dictionary<List<string>, AbstractSpell> spells;
 
     void Start()
     {
-        spells = new List<GameObject>();
-        spells.Add(blackhole);
-        spells.Add(stone);
-        foreach (GameObject go in spells)
+        sortsCharges = new List<string>();
+
+        spells = new Dictionary<List<string>, AbstractSpell>();
+        AddSpell(blackhole);
+        AddSpell(stone);
+
+        foreach (AbstractSpell absSpell in spells.Values)
         {
-            AbstractSpell absSpell = go.GetComponent<AbstractSpell>();
-            if (absSpell != null)
-            {
-                absSpell.reset_cooldown();
-            }
+             absSpell?.Reset_cooldown();
         }
     }
 
     void Update()
     {
-        foreach(GameObject go in spells)
+        foreach(string key in touches)
         {
-            AbstractSpell absSpell = go.GetComponent<AbstractSpell>();
-            if (absSpell != null)
+            if (Input.GetKeyDown(key) && sortsCharges.Count() < nombreSortsCharges)
             {
-                if (Input.GetKey(absSpell.Key))
-                {
-                    absSpell.createProjectile(transform);
-                }
+                sortsCharges.Add(key);
             }
         }
+        if (Input.GetButton("Fire2"))
+        {
+            foreach (KeyValuePair<List<string>, AbstractSpell> dic in spells)
+            {
+                List<string> listSpell = dic.Key;
+                AbstractSpell absSpell = dic.Value;
+                if (listSpell.SequenceEqual(sortsCharges))
+                {
+                    absSpell.CreateProjectile(transform);
+                }
+            }
+            sortsCharges.Clear();
+        }
+    }
+
+    private void AddSpell(GameObject go)
+    {
+        spells.Add(go.GetComponent<AbstractSpell>().Key, go.GetComponent<AbstractSpell>());
     }
 
 }

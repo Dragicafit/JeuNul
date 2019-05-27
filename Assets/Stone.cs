@@ -4,7 +4,7 @@ using UnityEngine;
 public class Stone : AbstractSpell
 {
     
-    protected override GameObject cloneObject(Transform t)
+    protected override GameObject CloneObject(Transform t)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -17,7 +17,7 @@ public class Stone : AbstractSpell
         throw new Exception("Raycast dans le vide");
     }
 
-    protected override void addForce(GameObject clone)
+    protected override void AddForce(GameObject clone)
     {
         clone.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * -Speed);
     }

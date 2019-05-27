@@ -1,0 +1,60 @@
+I - Elements primaires
+
+Feu							: Boule
+Eau							: Vague  
+
+Electricite					: Eclair
+Terre						: Shatter/Mur
+
+Air							: Projection
+Gravité						: Attirance
+
+Croissance/Vie/Nature		: AOE
+Mort						: Laser
+
+
+II - Combinaisons (fusionne directement avec le premier a droite) verifie les combos avnt le cast du sort 
+
+Mort + Croissance = Poison	: Flaque
+Feu + Eau = Vapeur			: Brume 
+Eau + Air = Glace			: Cristaux projettés 
+Terre + Feu = Lave			: Coulée (AOE en mouvement lent) 
+
+Terre + Electricite = None
+
+III - Interactions
+
+Gravité + Air = Onde de choc
+Terre + Gravité = Météorite
+Feu + Eau = Brouillard
+
+
+
+IV - Sorts
+Overide la forme (ne peux que être amplifié par les éléments bonus)
+Liste de sorts finie
+
+
+
+
+
+
+V Création d'un cast
+
+1. Creer les elements secondaires
+2. Creer les interactions 
+3. Vérifier la liste des sorts 
+
+4.1 Cast le sort le plus long existant dans la liste (exact)		
+
+4.2 Cree le sort par defaut en fonction de la liste des elements (types, particules, forme ...)
+
+
+
+VI Exemples verifiés 
+
+Electricite + Feu = Eclair qui enflamme a l'impact
+Air + Feu = Lance-flammes
+Feu + Electricite = Boule d'electricite
+Onde de choc + Feu = Explosion
+Feu + Electricite + Feu + Eau = Feu + Electricité + Vapeur = Boule de feu électrique vaporifié

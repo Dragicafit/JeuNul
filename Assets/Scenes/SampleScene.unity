@@ -229,6 +229,10 @@ MonoBehaviour:
   blackhole: {fileID: 470374244663631664, guid: 9ee8390053b81574fa7b4ea8e7d09509,
     type: 3}
   stone: {fileID: 537490710326617249, guid: cef1716febcd82e4b8b6f47622dcfa65, type: 3}
+  nombreSortsCharges: 5
+  touches:
+  - a
+  - z
 --- !u!114 &349147604
 MonoBehaviour:
   m_ObjectHideFlags: 0
