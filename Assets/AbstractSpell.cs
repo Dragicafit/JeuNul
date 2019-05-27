@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractSpell : MonoBehaviour
+public abstract class AbstractSpell : Detruisable
 { 
     public float Cooldown = 1f;
     public float Speed = 100f;
@@ -13,31 +13,34 @@ public abstract class AbstractSpell : MonoBehaviour
         LastUse = 0.0f;
     }
 
+    void Start()
+    {
+        AddForce();
+        DestroyObj();
+    }
+
     public void CreateProjectile(Transform t)
     {
         if (Time.time - Cooldown > LastUse)
         {
-            GameObject clone = CloneObject(t);
-            AddForce(clone);
-            DestroyObj(clone);
+            CloneObject(t);
             LastUse = Time.time;
         }
     }
 
-    protected virtual GameObject CloneObject(Transform t)
+    protected virtual void CloneObject(Transform t)
     {
-        GameObject clone = Instantiate(gameObject, t.position + t.forward * 2, t.rotation);
-        return clone;
+        Instantiate(gameObject, t.position + t.forward * 2, t.rotation);
     }
 
-    protected virtual void AddForce(GameObject clone)
+    protected virtual void AddForce()
     {
-        clone.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * Speed);
+        GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * Speed);
     }
 
-    protected virtual void DestroyObj(GameObject clone)
+    protected virtual void DestroyObj()
     {
-        clone.GetComponent<Projectile>().DestroyObjectDelayed();
+        GetComponent<Detruisable>().DestroyObjectDelayed();
     }
 
 }

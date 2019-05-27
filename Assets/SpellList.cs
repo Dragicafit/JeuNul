@@ -7,6 +7,8 @@ public class SpellList : MonoBehaviour
 
     public GameObject blackhole;
     public GameObject stone;
+    public GameObject bigExplosion;
+    public GameObject flameAir2;
     public int nombreSortsCharges = 5;
     public List<string> touches;
 
@@ -20,10 +22,12 @@ public class SpellList : MonoBehaviour
         spells = new Dictionary<List<string>, AbstractSpell>();
         AddSpell(blackhole);
         AddSpell(stone);
+        AddSpell(bigExplosion);
+        AddSpell(flameAir2);
 
         foreach (AbstractSpell absSpell in spells.Values)
         {
-             absSpell?.Reset_cooldown();
+            absSpell?.Reset_cooldown();
         }
     }
 
@@ -36,7 +40,7 @@ public class SpellList : MonoBehaviour
                 sortsCharges.Add(key);
             }
         }
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButtonDown("Fire2"))
         {
             foreach (KeyValuePair<List<string>, AbstractSpell> dic in spells)
             {
@@ -53,7 +57,8 @@ public class SpellList : MonoBehaviour
 
     private void AddSpell(GameObject go)
     {
-        spells.Add(go.GetComponent<AbstractSpell>().Key, go.GetComponent<AbstractSpell>());
+        AbstractSpell absSpell = go.GetComponent<AbstractSpell>();
+        spells.Add(absSpell.Key, absSpell);
     }
 
 }

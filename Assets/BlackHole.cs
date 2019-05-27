@@ -9,9 +9,9 @@ public class BlackHole : AbstractSpell
     }
 
     /*
-    protected override void addForce(GameObject clone)
+    protected override void addForce()
     {
-        clone.transform.Translate(Vector3.forward * Speed);
+        transform.Translate(Vector3.forward * Speed);
     }
     */
 

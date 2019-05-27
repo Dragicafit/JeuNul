@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -96,7 +96,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 15523e2110eee54449bd07c6d0f8ddfe,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -136,7 +137,7 @@ GameObject:
   - component: {fileID: 349147603}
   m_Layer: 0
   m_Name: The Cube of the death
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,10 +230,15 @@ MonoBehaviour:
   blackhole: {fileID: 470374244663631664, guid: 9ee8390053b81574fa7b4ea8e7d09509,
     type: 3}
   stone: {fileID: 537490710326617249, guid: cef1716febcd82e4b8b6f47622dcfa65, type: 3}
+  bigExplosion: {fileID: 3449947028203988612, guid: e5a29d86544c7454b86044e4d5d382cd,
+    type: 3}
+  flameAir2: {fileID: 2734828312589831331, guid: 077d1079a9f86c04890dde8da47ee343,
+    type: 3}
   nombreSortsCharges: 5
   touches:
   - a
   - z
+  - e
 --- !u!114 &349147604
 MonoBehaviour:
   m_ObjectHideFlags: 0

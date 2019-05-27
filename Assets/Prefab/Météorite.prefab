@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8160703109154858552}
   - component: {fileID: 4116512931907162906}
   - component: {fileID: -8550052254224278373}
-  - component: {fileID: -4003170997629925290}
   - component: {fileID: 3137369851511147580}
   m_Layer: 0
   m_Name: "M\xE9t\xE9orite"
@@ -48,9 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec17123f74e18440b3547e67c15e5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBeforeDestroy: 5
   Cooldown: 1
   Speed: 100
-  Key: z
+  Key:
+  - z
 --- !u!54 &-8550052254224278373
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -67,19 +68,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-4003170997629925290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537490710326617249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cdec13a1dc79704cb12c8d2f32eda64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBeforeDestroy: 20
 --- !u!135 &3137369851511147580
 SphereCollider:
   m_ObjectHideFlags: 0
