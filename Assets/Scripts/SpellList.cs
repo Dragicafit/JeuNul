@@ -6,7 +6,7 @@ public class SpellList : MonoBehaviour
 {
 
     public GameObject blackhole;
-    public GameObject stone;
+    public GameObject meteor;
     public GameObject bigExplosion;
     public GameObject flameAir2;
     public int nombreSortsCharges = 5;
@@ -21,7 +21,7 @@ public class SpellList : MonoBehaviour
 
         spells = new Dictionary<List<string>, AbstractSpell>();
         AddSpell(blackhole);
-        AddSpell(stone);
+        AddSpell(meteor);
         AddSpell(bigExplosion);
         AddSpell(flameAir2);
 

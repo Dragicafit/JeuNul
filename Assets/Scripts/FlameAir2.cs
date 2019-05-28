@@ -16,7 +16,7 @@ public class FlameAir2 : AbstractSpell
     {
         GameObject parent = GameObject.FindWithTag("Player");
         GameObject g = Instantiate(gameObject, parent.transform);
-        g.transform.localPosition = new Vector3(0, 0, 2);
+        g.transform.localPosition = new Vector3(0, 1, 0.7f);
         //g.transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 
@@ -24,7 +24,13 @@ public class FlameAir2 : AbstractSpell
     {
         if (Input.GetButtonUp("Fire2"))
         {
-            GetComponent<Detruisable>().DestroyGameObject();
+            var em = GetComponent<ParticleSystem>().emission;
+            em.enabled = false;
+
+            var em2 = transform.GetChild(0).GetComponent<ParticleSystem>().emission;
+            em2.enabled = false;
+
+            GetComponent<Detruisable>().DestroyObjectDelayed();
         }
     }
 }
