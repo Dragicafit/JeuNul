@@ -1,14 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class SpellList : MonoBehaviour
 {
-
-    public GameObject blackhole;
-    public GameObject meteor;
-    public GameObject bigExplosion;
-    public GameObject flameAir2;
     public int nombreSortsCharges = 5;
     public List<string> touches;
 
@@ -20,14 +16,9 @@ public class SpellList : MonoBehaviour
         sortsCharges = new List<string>();
 
         spells = new Dictionary<List<string>, AbstractSpell>();
-        AddSpell(blackhole);
-        AddSpell(meteor);
-        AddSpell(bigExplosion);
-        AddSpell(flameAir2);
-
-        foreach (AbstractSpell absSpell in spells.Values)
+        foreach (AbstractSpell absSpell in Resources.LoadAll("spells", typeof(AbstractSpell)))
         {
-            absSpell?.Reset_cooldown();
+            AddSpell(absSpell);
         }
     }
 
@@ -55,10 +46,10 @@ public class SpellList : MonoBehaviour
         }
     }
 
-    private void AddSpell(GameObject go)
+    private void AddSpell(AbstractSpell absSpell)
     {
-        AbstractSpell absSpell = go.GetComponent<AbstractSpell>();
         spells.Add(absSpell.Key, absSpell);
+        absSpell.Reset_cooldown();
     }
 
 }

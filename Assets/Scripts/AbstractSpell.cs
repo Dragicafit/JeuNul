@@ -6,7 +6,9 @@ public abstract class AbstractSpell : Detruisable
     public float Cooldown = 1f;
     public float Speed = 100f;
     public List<string> Key;
+
     protected float LastUse = 0f;
+    protected Rigidbody body;
 
     public void Reset_cooldown()
     {
@@ -15,6 +17,7 @@ public abstract class AbstractSpell : Detruisable
 
     void Start()
     {
+        body = GetComponent<Rigidbody>();
         AddForce();
         DestroyObj();
     }
@@ -35,7 +38,7 @@ public abstract class AbstractSpell : Detruisable
 
     protected virtual void AddForce()
     {
-        GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * Speed);
+        body.AddRelativeForce(Vector3.forward * Speed);
     }
 
     protected virtual void DestroyObj()

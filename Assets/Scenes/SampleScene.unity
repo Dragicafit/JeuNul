@@ -121,6 +121,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &146757527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3348383527156756720, guid: c8f80d037c0ca724c93f6a6a6882a1c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1420977527046513755}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &146757529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146757527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f9ea37c8cb69e4cb2b890d849ef16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &276028112
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,13 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49b9d736197481448b21f05f0bd124f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackhole: {fileID: 470374244663631664, guid: 9ee8390053b81574fa7b4ea8e7d09509,
-    type: 3}
-  meteor: {fileID: 537490710326617249, guid: cef1716febcd82e4b8b6f47622dcfa65, type: 3}
-  bigExplosion: {fileID: 3449947028203988612, guid: e5a29d86544c7454b86044e4d5d382cd,
-    type: 3}
-  flameAir2: {fileID: 2734828312589831331, guid: 077d1079a9f86c04890dde8da47ee343,
-    type: 3}
   nombreSortsCharges: 5
   touches:
   - a
@@ -845,13 +856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49b9d736197481448b21f05f0bd124f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackhole: {fileID: 470374244663631664, guid: 9ee8390053b81574fa7b4ea8e7d09509,
-    type: 3}
-  meteor: {fileID: 537490710326617249, guid: cef1716febcd82e4b8b6f47622dcfa65, type: 3}
-  bigExplosion: {fileID: 3449947028203988612, guid: e5a29d86544c7454b86044e4d5d382cd,
-    type: 3}
-  flameAir2: {fileID: 2734828312589831331, guid: 077d1079a9f86c04890dde8da47ee343,
-    type: 3}
   nombreSortsCharges: 5
   touches:
   - a
@@ -1019,6 +1023,16 @@ PrefabInstance:
     - target: {fileID: 9098941954593825733, guid: c8f80d037c0ca724c93f6a6a6882a1c6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4055742733952624766, guid: c8f80d037c0ca724c93f6a6a6882a1c6,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4055742733952624766, guid: c8f80d037c0ca724c93f6a6a6882a1c6,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

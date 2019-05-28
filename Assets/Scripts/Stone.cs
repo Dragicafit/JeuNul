@@ -7,8 +7,7 @@ public class Stone : AbstractSpell
     protected override void CloneObject(Transform t)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
             Vector3 spawnPoint = hit.point;
             spawnPoint.y = 100;
@@ -22,7 +21,7 @@ public class Stone : AbstractSpell
 
     protected override void AddForce()
     {
-        GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * -Speed);
+        body.AddRelativeForce(Vector3.up * -Speed);
     }
 
 }

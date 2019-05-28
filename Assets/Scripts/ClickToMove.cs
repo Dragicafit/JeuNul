@@ -9,12 +9,14 @@ public class ClickToMove : MonoBehaviour
     public float DashDistance = 5f;
 
     private Rigidbody body;
+    private Collider col;
     private Vector3 input;
     //private LesBeauxPiedsDuCube lbpdc;
 
     void Start()
     {
         body = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
         /*
         lbpdc = GetComponentInChildren<LesBeauxPiedsDuCube>();
         if (lbpdc == null)
@@ -25,7 +27,7 @@ public class ClickToMove : MonoBehaviour
     void Update()
     {
         
-        float DisstanceToTheGround = GetComponent<Collider>().bounds.extents.y;
+        float DisstanceToTheGround = col.bounds.extents.y;
         bool IsGrounded = Physics.Raycast(transform.position, Vector3.down, DisstanceToTheGround + GroundDistance);
         
 
@@ -51,8 +53,10 @@ public class ClickToMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1"))
+        {
             body.MovePosition(body.position + input * Speed * Time.fixedDeltaTime);
+        }
     }
 
 }
