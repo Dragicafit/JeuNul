@@ -7,17 +7,17 @@ public class LesBeauxPiedsDuCube : MonoBehaviour
 
     private bool IsItReallyGrounded = false;
 
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerEnter(Collider other)
     {
         IsItReallyGrounded = true;
     }
 
-    void OnTriggerStay(Collider collision)
+    void OnTriggerStay(Collider other)
     {
         IsItReallyGrounded = true;
     }
 
-    void OnTriggerExit(Collider collision)
+    void OnTriggerExit(Collider other)
     {
         IsItReallyGrounded = false;
     }
