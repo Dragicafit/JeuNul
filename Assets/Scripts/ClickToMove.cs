@@ -6,11 +6,10 @@ public class ClickToMove : MonoBehaviour
     public float Speed = 5f;
     public float JumpHeight = 2f;
     public float GroundDistance = 0.2f;
-    public float DashDistance = 5f;
+    //public float DashDistance = 5f;
 
     private Rigidbody body;
     private Collider col;
-    private Vector3 input;
     //private LesBeauxPiedsDuCube lbpdc;
 
     void Start()
@@ -24,18 +23,18 @@ public class ClickToMove : MonoBehaviour
         */
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
         bool IsGrounded = Physics.Raycast(transform.position, Vector3.down, GroundDistance);
-        
-
         //bool IsGrounded = false;// lbpdc.IsGrounded();
 
-        input = new Vector3(Input.mousePosition.x - Screen.width / 2, 0.0f, Input.mousePosition.y - Screen.height / 2).normalized;
-        if (input != Vector3.zero)
-            transform.forward = input;
-        
+        Vector3 moveDirection = Vector3.zero;
+        if (Input.GetButton("Fire1"))
+        {
+            moveDirection = new Vector3(Input.mousePosition.x - Screen.width / 2, 0.0f, Input.mousePosition.y - Screen.height / 2).normalized;
+            body.MovePosition(body.position + moveDirection * Speed * Time.fixedDeltaTime);
+        }
+
         if (Input.GetButtonDown("Jump") && IsGrounded)
         {
             body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
@@ -49,13 +48,4 @@ public class ClickToMove : MonoBehaviour
         }
         */
     }
-
-    void FixedUpdate()
-    {
-        if (Input.GetButton("Fire1"))
-        {
-            body.MovePosition(body.position + input * Speed * Time.fixedDeltaTime);
-        }
-    }
-
 }
