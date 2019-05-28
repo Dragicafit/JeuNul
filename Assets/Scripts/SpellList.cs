@@ -1,21 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 public class SpellList : MonoBehaviour
 {
-    public int nombreSortsCharges = 5;
-    public List<string> touches = new List<string>{ "a", "z", "e", "r" };
-
-    private List<string> sortsCharges;
-    private Dictionary<List<string>, AbstractSpell> spells;
+    private Touches touches;
+    private Canalisation canalisation;
+    private Dictionary<List<Element>, AbstractSpell> spells;
 
     void Start()
     {
-        sortsCharges = new List<string>();
+        touches = GetComponent<Touches>();
+        canalisation = GetComponent<Canalisation>();
 
-        spells = new Dictionary<List<string>, AbstractSpell>();
+        spells = new Dictionary<List<Element>, AbstractSpell>();
         foreach (AbstractSpell absSpell in Resources.LoadAll("spells", typeof(AbstractSpell)))
         {
             AddSpell(absSpell);
@@ -24,31 +22,31 @@ public class SpellList : MonoBehaviour
 
     void Update()
     {
-        foreach(string key in touches)
+        foreach(KeyValuePair<string, Element> entry in touches.getTouches())
         {
-            if (Input.GetKeyDown(key) && sortsCharges.Count() < nombreSortsCharges)
+            if (Input.GetKeyDown(entry.Key))
             {
-                sortsCharges.Add(key);
+                canalisation.Add(entry.Value);
+                break;
             }
         }
         if (Input.GetButtonDown("Fire2"))
         {
-            foreach (KeyValuePair<List<string>, AbstractSpell> dic in spells)
+            foreach (KeyValuePair<List<Element>, AbstractSpell> entry in spells)
             {
-                List<string> listSpell = dic.Key;
-                AbstractSpell absSpell = dic.Value;
-                if (listSpell.SequenceEqual(sortsCharges))
+                if (canalisation.MemeCombinaison(entry.Key))
                 {
-                    absSpell.CreateProjectile(transform);
+                    entry.Value.CreateProjectile(transform);
+                    break;
                 }
             }
-            sortsCharges.Clear();
+            canalisation.Clear();
         }
     }
 
     private void AddSpell(AbstractSpell absSpell)
     {
-        spells.Add(absSpell.Key, absSpell);
+        spells.Add(absSpell.Key.Cast<Element>().ToList(), absSpell);
         absSpell.Reset_cooldown();
     }
 

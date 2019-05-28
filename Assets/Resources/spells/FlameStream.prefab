@@ -4771,8 +4771,8 @@ MonoBehaviour:
   Cooldown: 1
   Speed: 100
   Key:
-  - a
-  - z
+  - 4
+  - 0
 --- !u!1 &2735554144136110977
 GameObject:
   m_ObjectHideFlags: 0

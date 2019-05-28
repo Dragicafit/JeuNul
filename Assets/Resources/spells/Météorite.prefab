@@ -51,7 +51,8 @@ MonoBehaviour:
   Cooldown: 1
   Speed: 100
   Key:
-  - z
+  - 3
+  - 5
 --- !u!54 &-8550052254224278373
 Rigidbody:
   m_ObjectHideFlags: 0

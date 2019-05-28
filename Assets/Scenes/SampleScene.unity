@@ -680,12 +680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49b9d736197481448b21f05f0bd124f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreSortsCharges: 5
-  touches:
-  - a
-  - z
-  - e
-  - r
 --- !u!114 &8296172669218202667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,3 +719,36 @@ MonoBehaviour:
   Speed: 5
   JumpHeight: 2
   GroundDistance: 0.2
+--- !u!114 &8296172669218202674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172669218202665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b13c5a0ed17464b97777b529935b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sort1: a
+  Sort2: z
+  Sort3: e
+  Sort4: r
+  Sort5: q
+  Sort6: s
+  Sort7: d
+  Sort8: f
+--- !u!114 &8296172669218202675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172669218202665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf906fc07bc89845ad7e88780bb3f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreSortsCharges: 5

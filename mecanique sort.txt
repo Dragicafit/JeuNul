@@ -26,7 +26,6 @@ III - Interactions
 
 Gravité + Air = Onde de choc
 Terre + Gravité = Météorite
-Feu + Eau = Brouillard
 
 
 

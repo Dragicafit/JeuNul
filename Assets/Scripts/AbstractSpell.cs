@@ -2,10 +2,10 @@
 using UnityEngine;
 
 public abstract class AbstractSpell : Detruisable
-{ 
+{
     public float Cooldown = 1f;
     public float Speed = 100f;
-    public List<string> Key;
+    public List<int> Key;
 
     protected float LastUse = 0f;
     protected Rigidbody body;

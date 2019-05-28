@@ -9600,7 +9600,9 @@ MonoBehaviour:
   Cooldown: 1
   Speed: 100
   Key:
-  - e
+  - 5
+  - 4
+  - 0
 --- !u!1 &3451250588811970328
 GameObject:
   m_ObjectHideFlags: 0
