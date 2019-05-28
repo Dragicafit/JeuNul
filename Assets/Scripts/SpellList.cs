@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpellList : MonoBehaviour
 {
     public int nombreSortsCharges = 5;
-    public List<string> touches;
+    public List<string> touches = new List<string>{ "a", "z", "e", "r" };
 
     private List<string> sortsCharges;
     private Dictionary<List<string>, AbstractSpell> spells;
