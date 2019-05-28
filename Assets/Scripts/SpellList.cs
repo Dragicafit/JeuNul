@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -32,16 +33,23 @@ public class SpellList : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire2"))
         {
-            foreach (KeyValuePair<List<Element>, AbstractSpell> entry in spells)
-            {
-                if (canalisation.MemeCombinaison(entry.Key))
-                {
-                    entry.Value.CreateProjectile(transform);
-                    break;
-                }
-            }
+            Lance();
             canalisation.Clear();
         }
+    }
+
+    private void Lance()
+    {
+        foreach (KeyValuePair<List<Element>, AbstractSpell> entry in spells)
+        {
+            if (canalisation.MemeCombinaison(entry.Key))
+            {
+                entry.Value.CreateProjectile(transform);
+                return;
+            }
+        }
+        Sort sort = new Sort(canalisation.SortsCharges);
+        Debug.Log(sort);
     }
 
     private void AddSpell(AbstractSpell absSpell)
