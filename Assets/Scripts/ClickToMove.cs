@@ -27,8 +27,7 @@ public class ClickToMove : MonoBehaviour
     void Update()
     {
         
-        float DisstanceToTheGround = col.bounds.extents.y;
-        bool IsGrounded = Physics.Raycast(transform.position, Vector3.down, DisstanceToTheGround + GroundDistance);
+        bool IsGrounded = Physics.Raycast(transform.position, Vector3.down, GroundDistance);
         
 
         //bool IsGrounded = false;// lbpdc.IsGrounded();
