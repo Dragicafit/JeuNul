@@ -6,11 +6,12 @@ public class ClickToMove : MonoBehaviour
     public float walk = 0.5f;
     public float run = 1.5f;
     public float jumpHeight = 0.1f;
+    public float groundContact = 0.5f;
     //public float groundDistance = 0.1f;
     //public float DashDistance = 5f;
 
     private Rigidbody body;
-    private float radius;
+    private CapsuleCollider col;
     private bool isGrounded;
     private Vie pv;
     //private LesBeauxPiedsDuCube lbpdc;
@@ -19,7 +20,7 @@ public class ClickToMove : MonoBehaviour
     {
         pv = GetComponent<Vie>();
         body = GetComponent<Rigidbody>();
-        radius = GetComponent<CapsuleCollider>().radius;
+        col = GetComponent<CapsuleCollider>();
         /*
         lbpdc = GetComponentInChildren<LesBeauxPiedsDuCube>();
         if (lbpdc == null)
@@ -29,13 +30,13 @@ public class ClickToMove : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.position.y < transform.position.y + radius)
+        if (collision.transform.position.y < transform.position.y + col.radius * groundContact)
             isGrounded = true;
     }
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.GetContact(0).point.y < transform.position.y + radius)
+        if (collision.GetContact(0).point.y < transform.position.y + col.radius * groundContact)
             isGrounded = true;
     }
 
@@ -55,7 +56,7 @@ public class ClickToMove : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             //body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
-            body.velocity = new Vector3(body.velocity.x, jumpHeight * -2f * Physics.gravity.y, body.velocity.z);
+            body.velocity = new Vector3(body.velocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), body.velocity.z);
         }
 
         /*
