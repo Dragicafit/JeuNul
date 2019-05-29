@@ -719,6 +719,22 @@ MonoBehaviour:
   Speed: 5
   JumpHeight: 2
   GroundDistance: 0.2
+  Distanceto: 0
+  faraway: 0
+--- !u!114 &8296172669218202670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172669218202665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70978a9ee76d3b4796be28d9a21c84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viemax: 180
+  vie: 180
 --- !u!114 &8296172669218202674
 MonoBehaviour:
   m_ObjectHideFlags: 0

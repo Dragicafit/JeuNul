@@ -2,18 +2,33 @@
 
 public class AnimationJoueur : AnimationBasique
 {
-    public ClickToMove Info = null;
- 
+
+    private ClickToMove Info;
+    private Vie pv;
+
+    protected override void Start()
+    {
+        base.Start();
+        Info = GetComponent<ClickToMove>();
+        pv = GetComponent<Vie>();
+    }
+
     void Update()
     {
-        Info = gameObject.GetComponent<ClickToMove>();
-        if (Info.faraway)
-            Info.Speed = 10f;
-        else
+        if (Info.Distanceto > 100)
+        {
+            Info.Speed = 15f;
+            anim.SetBool("Walk", false);
+            anim.SetBool("Run", Input.GetButton("Fire1"));
+        }
+        else if(Info.Distanceto != 0)
+        {
             Info.Speed = 5f;
-        anim.SetBool("Walk", Input.GetButton("Fire1"));
-        
+            anim.SetBool("Walk", Input.GetButton("Fire1"));
+        }
+        if (Info.Distanceto == 0)
+            anim.SetBool("Walk", false);
+        anim.SetBool("Mort", pv.vie < 1);
     }
-    
  
 }
