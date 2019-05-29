@@ -627,7 +627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b3a69ff08ab05478215bd17e424eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Info: {fileID: 0}
 --- !u!114 &1923041065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,11 +639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592cf23d1d161c6449b81f7e0addfee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
-  JumpHeight: 0.5
-  GroundDistance: 0.001
-  Distanceto: 0
-  faraway: 0
+  walk: 0.5
+  run: 1
+  jumpHeight: 0.1
 --- !u!1 &2047466231
 GameObject:
   m_ObjectHideFlags: 0
