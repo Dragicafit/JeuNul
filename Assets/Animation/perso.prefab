@@ -1166,6 +1166,7 @@ GameObject:
   - component: {fileID: -6057140222963153312}
   - component: {fileID: 8220172396087844260}
   - component: {fileID: 6088194484932379901}
+  - component: {fileID: -5996492036258449601}
   m_Layer: 0
   m_Name: perso
   m_TagString: Untagged
@@ -1239,6 +1240,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &-5996492036258449601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744431666962320987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70978a9ee76d3b4796be28d9a21c84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viemax: 180
+  vie: 180
 --- !u!1 &6776091545344089510
 GameObject:
   m_ObjectHideFlags: 0
