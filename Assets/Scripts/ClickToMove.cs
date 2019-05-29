@@ -6,12 +6,13 @@ public class ClickToMove : MonoBehaviour
     public float Speed = 5f;
     public float JumpHeight = 2f;
     public float GroundDistance = 0.2f;
+    public float Distanceto;
+    public bool faraway = false;
     //public float DashDistance = 5f;
 
     private Rigidbody body;
     private Collider col;
     //private LesBeauxPiedsDuCube lbpdc;
-
     void Start()
     {
         body = GetComponent<Rigidbody>();
@@ -29,10 +30,17 @@ public class ClickToMove : MonoBehaviour
         //bool IsGrounded = false;// lbpdc.IsGrounded();
 
         Vector3 moveDirection = Vector3.zero;
+        Vector3 forward = Vector3.zero;
         if (Input.GetButton("Fire1"))
         {
             moveDirection = new Vector3(Input.mousePosition.x - Screen.width / 2, 0.0f, Input.mousePosition.y - Screen.height / 2).normalized;
             body.MovePosition(body.position + moveDirection * Speed * Time.fixedDeltaTime);
+            forward = new Vector3(Input.mousePosition.x - Screen.width / 2, 0, Input.mousePosition.y - Screen.height / 2);
+            Distanceto = Vector3.Distance(forward, body.position);
+            if (Distanceto > 75)
+                faraway = true;
+            else
+                faraway = false;
         }
 
         if (Input.GetButtonDown("Jump") && IsGrounded)
