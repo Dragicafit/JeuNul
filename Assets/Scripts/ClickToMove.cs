@@ -12,10 +12,12 @@ public class ClickToMove : MonoBehaviour
     private Rigidbody body;
     private float radius;
     private bool isGrounded;
+    private Vie pv;
     //private LesBeauxPiedsDuCube lbpdc;
 
     void Start()
     {
+        pv = GetComponent<Vie>();
         body = GetComponent<Rigidbody>();
         radius = GetComponent<CapsuleCollider>().radius;
         /*
