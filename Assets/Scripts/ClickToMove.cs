@@ -4,7 +4,7 @@ using UnityEngine;
 public class ClickToMove : MonoBehaviour
 {
     public float walk = 0.5f;
-    public float run = 1f;
+    public float run = 1.5f;
     public float jumpHeight = 0.1f;
     //public float groundDistance = 0.1f;
     //public float DashDistance = 5f;
@@ -48,7 +48,7 @@ public class ClickToMove : MonoBehaviour
         {
             Vector3 move = new Vector3(Input.mousePosition.x - Screen.width / 2, 0.0f, Input.mousePosition.y - Screen.height / 2);
             moveDirection = move.normalized;
-            moveDirection *= move.magnitude > 75 ? run : walk;
+            moveDirection *= move.magnitude > 100 ? run : walk;
             body.MovePosition(body.position + moveDirection * Time.fixedDeltaTime);
         }
 

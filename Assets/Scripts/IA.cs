@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IA : MonoBehaviour
 {
-    private float Speed = 2.5f;
+    private float Speed = 1f;
 
     private Rigidbody npc;
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class IA : MonoBehaviour
     void Update()
     {
         Vector3 moveDirection = Vector3.zero;
-        Vector3 position = GameObject.Find("player").transform.position;
+        Vector3 position = GameObject.FindWithTag("Player").transform.position;
         moveDirection = new Vector3( position.x - npc.position.x, position.y - npc.position.y, position.z - npc.position.z).normalized;
         transform.forward = new Vector3(position.x - npc.position.x, 0, position.z - npc.position.z);
         npc.MovePosition(npc.position + moveDirection * Speed * Time.fixedDeltaTime);

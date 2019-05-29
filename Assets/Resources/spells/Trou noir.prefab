@@ -123,11 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e936195b085c74e888fe1244c866e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeDestroy: 50000
+  delayBeforeDestroy: 5
   Cooldown: 1
   Speed: 1
-  Key:
-  - 5
+  Key: 05000000
 --- !u!54 &1167765084144854746
 Rigidbody:
   m_ObjectHideFlags: 0
