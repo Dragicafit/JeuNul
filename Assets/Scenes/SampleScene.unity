@@ -717,8 +717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  JumpHeight: 2
-  GroundDistance: 0.2
+  JumpHeight: 8
+  gravity: 20
 --- !u!114 &8296172669218202674
 MonoBehaviour:
   m_ObjectHideFlags: 0
