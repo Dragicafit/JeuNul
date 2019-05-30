@@ -10,7 +10,7 @@ public class Stone : AbstractSpell
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             Vector3 spawnPoint = hit.point;
-            spawnPoint.y = 100;
+            spawnPoint.y = 10;
             Instantiate(gameObject, spawnPoint, t.rotation);
         }
         else
@@ -21,7 +21,15 @@ public class Stone : AbstractSpell
 
     protected override void AddForce()
     {
-        body.AddRelativeForce(Vector3.up * -Speed);
+        body.AddRelativeForce(Vector3.down * speed);
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        GetComponent<Detruisable>().DestroyGameObject();
+    }
+
+    protected override void DestroyObj()
+    {
+    }
 }

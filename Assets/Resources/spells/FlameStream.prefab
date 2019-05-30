@@ -286,7 +286,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 2
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -2020,7 +2020,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4768,11 +4768,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeDestroy: 5
-  Cooldown: 1
-  Speed: 100
-  Key:
-  - 4
-  - 0
+  cooldown: 0
+  speed: 100
+  key: 0400000000000000
 --- !u!1 &2735554144136110977
 GameObject:
   m_ObjectHideFlags: 0

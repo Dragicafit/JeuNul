@@ -54,7 +54,7 @@ public class SpellList : MonoBehaviour
 
     private void AddSpell(AbstractSpell absSpell)
     {
-        spells.Add(absSpell.Key.Cast<Element>().ToList(), absSpell);
+        spells.Add(absSpell.key.Cast<Element>().ToList(), absSpell);
         absSpell.Reset_cooldown();
     }
 

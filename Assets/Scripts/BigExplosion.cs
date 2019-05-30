@@ -1,8 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class BigExplosion : AbstractSpell
+public class BigExplosion : OndeDeChoc
 {
-    protected override void AddForce()
-    {
-    }
 }
