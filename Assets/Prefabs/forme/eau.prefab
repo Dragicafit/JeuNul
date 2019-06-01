@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6628486771669981228}
   - component: {fileID: 7930816849679419676}
   - component: {fileID: 1014762814445537469}
+  - component: {fileID: 8819097851226413612}
   m_Layer: 0
   m_Name: eau
   m_TagString: Untagged
@@ -93,3 +94,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 230372461581571290, guid: fa3ca67ce835f4645bc015ba6939a9ae, type: 3}
+--- !u!114 &8819097851226413612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4178073449025642073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6a6df342b52d24092cf6bbb590c535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveHeight: 0.0001
+  waveFrequency: 0.5
+  waveLength: 0.001
+  waveOriginPosition: {x: 0, y: 0, z: 0}
