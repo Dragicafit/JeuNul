@@ -96,6 +96,7 @@ namespace LowPolyWater
             mesh.RecalculateNormals();
             mesh.MarkDynamic();
             meshFilter.mesh = mesh;
+            GetComponent<MeshCollider>().sharedMesh = mesh;
         }
     }
 }
