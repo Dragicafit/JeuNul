@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public enum Forme { Boule, Vague, Eclair, Shatter, Projection, Attirance, AOE, Laser, Flaque, Brume, Cristaux, Coulee, OndeDeChoc, Meteorite };
+public enum Forme { Boule, Vague, Eclair, Mur, Projection, Attirance, AOE, Laser, Flaque, Brume, Cristaux, Coulee, OndeDeChoc, Meteorite };
 
 public class Sort
 {
@@ -13,7 +13,7 @@ public class Sort
         {new List<Element>{Element.Feu}, Forme.Boule },
         {new List<Element>{Element.Eau}, Forme.Vague },
         {new List<Element>{Element.Electricite}, Forme.Eclair },
-        {new List<Element>{Element.Terre}, Forme.Shatter },
+        {new List<Element>{Element.Terre}, Forme.Mur },
         {new List<Element>{Element.Air}, Forme.Projection },
         {new List<Element>{Element.Gravite}, Forme.Attirance },
         {new List<Element>{Element.Croissance}, Forme.AOE },
